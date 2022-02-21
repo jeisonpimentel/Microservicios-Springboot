@@ -1,0 +1,30 @@
+package com.udy.micro.cursos.controllers;
+
+import java.util.Optional;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import com.udy.commons.microservicios.controllers.CommonController;
+import com.udy.micro.cursos.entity.Curso;
+import com.udy.micro.cursos.services.CursoService;
+
+@RestController
+public class CursoController extends CommonController<Curso, CursoService> {
+	
+	@PutMapping("/{id}")
+	public ResponseEntity<?> edit(@RequestBody Curso curso, @PathVariable Long id){
+		
+		Optional<Curso> o = service.findById(id);
+		if(!o.isPresent())
+			return ResponseEntity.notFound().build();
+		
+		Curso cursoDB = o.get();
+		
+		return null;
+		
+	}
+
+}

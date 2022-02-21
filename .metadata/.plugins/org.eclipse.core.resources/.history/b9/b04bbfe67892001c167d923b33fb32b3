@@ -1,0 +1,15 @@
+package com.udy.micro.cursos.repository;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.udy.micro.cursos.entity.Curso;
+
+@Repository
+public interface CursoRepository extends CrudRepository<Curso, Long> {
+	
+	@Query("select c from cursos where c.id = ?1")
+	public Curso obtenerCursoPorAlumnoId( Long id );
+	
+}

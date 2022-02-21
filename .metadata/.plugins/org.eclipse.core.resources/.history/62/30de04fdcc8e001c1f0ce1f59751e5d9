@@ -1,0 +1,15 @@
+package com.microservicios.app.usuarios.persistence.services.Impl;
+
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import com.microservicios.app.usuarios.persistence.entity.Alumno;
+import com.microservicios.app.usuarios.persistence.repository.AlumnoRepository;
+import com.microservicios.app.usuarios.persistence.services.AlumnoService;
+import com.udy.commons.microservicios.services.impl.CommonServiceImpl;
+
+@Service
+public class AlumnoServiceImpl extends CommonServiceImpl<Alumno, AlumnoRepository> implements AlumnoService {
+
+}

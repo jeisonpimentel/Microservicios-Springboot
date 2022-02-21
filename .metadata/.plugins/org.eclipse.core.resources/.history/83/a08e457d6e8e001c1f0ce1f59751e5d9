@@ -1,0 +1,5 @@
+package com.microservicios.app.usuarios.persistence.services;
+
+public interface AlumnoService {
+
+}

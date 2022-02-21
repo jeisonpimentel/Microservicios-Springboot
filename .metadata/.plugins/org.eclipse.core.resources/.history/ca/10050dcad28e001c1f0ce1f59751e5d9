@@ -1,0 +1,7 @@
+package com.udy.micro.cursos.repository;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface CursoRepository extends CrudRepository<Curso, Long> {
+
+}

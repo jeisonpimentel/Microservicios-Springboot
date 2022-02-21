@@ -1,0 +1,5 @@
+package com.udymicro.examenes.services;
+
+public interface ExamenService extends CommonService {
+
+}

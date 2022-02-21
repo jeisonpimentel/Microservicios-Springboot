@@ -1,0 +1,8 @@
+package com.udy.micro.cursos.services.impl;
+
+import com.udy.commons.microservicios.services.impl.CommonServiceImpl;
+import com.udy.micro.cursos.services.CursoService;
+
+public class CursoServiceImpl extends CommonServiceImpl<Curso, CursoRepository> implements CursoService  {
+
+}

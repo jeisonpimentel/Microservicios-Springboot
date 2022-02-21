@@ -1,0 +1,5 @@
+package com.udy.micro.cursos.services.impl;
+
+public class CursoServiceImpl {
+
+}

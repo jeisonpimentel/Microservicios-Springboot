@@ -1,0 +1,9 @@
+package com.microservicios.app.usuarios.persistence.repository;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface AlumnoRepository extends CrudRepository<Alumno, Long> {
+	
+	
+
+}

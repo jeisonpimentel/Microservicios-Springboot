@@ -1,0 +1,5 @@
+package com.microservicios.app.usuarios.persistence.services.Impl;
+
+public class AlumnoServiceImpl implements AlumnoService {
+
+}

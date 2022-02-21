@@ -1,0 +1,5 @@
+package com.udymicro.examenes.repository;
+
+public interface ExamenRepository {
+
+}

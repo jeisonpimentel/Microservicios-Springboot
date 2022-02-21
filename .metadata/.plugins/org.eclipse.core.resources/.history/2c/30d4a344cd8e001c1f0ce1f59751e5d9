@@ -1,0 +1,74 @@
+package com.udy.commons.microservicios.controllers;
+
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import com.microservicios.app.usuarios.persistence.entity.Alumno;
+import com.microservicios.app.usuarios.persistence.services.AlumnoService;
+
+@RestController
+public class AlumnoController {
+	
+	@Autowired
+	private AlumnoService service;
+	
+	@GetMapping
+	public ResponseEntity<?> getAll() {
+		return ResponseEntity.ok().body(service.findAll());
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<?> getById(@PathVariable Long id){
+		
+		Optional<Alumno> optAlum = service.findById(id);
+		
+		if(!optAlum.isPresent()) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		return ResponseEntity.ok().body( optAlum.get() );
+	}
+	
+	@PostMapping
+	public ResponseEntity<?> create(@RequestBody Alumno alumno){
+		
+		Alumno alumnoDB = service.save(alumno);
+		
+		return ResponseEntity.status(HttpStatus.CREATED).body(alumnoDB);	
+	}
+	
+	@PutMapping("/{id}")
+	public ResponseEntity<?> edit(@RequestBody Alumno alumno, @PathVariable Long id){
+		
+		Optional<Alumno> o = service.findById(id);
+		
+		if(!o.isPresent()) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		Alumno alumnoDB = o.get();
+		
+		//Actualizamos el alumno
+		alumnoDB.setNombre( alumno.getNombre() );
+		alumnoDB.setApellido( alumno.getApellido() );
+		alumnoDB.setEmail( alumno.getEmail() );
+		alumnoDB.setCreateAt( alumno.getCreateAt() );
+		
+		return ResponseEntity.status( HttpStatus.CREATED).body(service.save( alumnoDB ) );
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<?> delete(@PathVariable Long id){
+		service.deleteById(id);
+		return ResponseEntity.noContent().build();
+	}
+
+}
