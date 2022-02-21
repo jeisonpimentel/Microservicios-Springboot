@@ -1,4 +1,4 @@
-package com.udymicro.examenes.entity;
+package com.udy.commons.examenes.entity;
 
 import java.util.ArrayList;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package com.udymicro.examenes.entity;
+package com.udy.commons.examenes.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
