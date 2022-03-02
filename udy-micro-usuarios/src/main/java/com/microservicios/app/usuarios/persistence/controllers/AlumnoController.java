@@ -1,8 +1,12 @@
 package com.microservicios.app.usuarios.persistence.controllers;
 
 import java.util.Optional;
+
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -17,7 +21,11 @@ public class AlumnoController extends CommonController<Alumno, AlumnoService>{
 	
 
 	@PutMapping("/{id}")
-	public ResponseEntity<?> edit(@RequestBody Alumno alumno, @PathVariable Long id){
+	public ResponseEntity<?> edit(@Valid @RequestBody Alumno alumno, BindingResult result, @PathVariable Long id){
+		
+		if( result.hasErrors()) {
+			return validar( result );
+		}
 		
 		Optional<Alumno> o = service.findById(id);
 		

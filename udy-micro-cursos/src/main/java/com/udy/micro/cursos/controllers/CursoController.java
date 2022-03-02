@@ -3,8 +3,11 @@ package com.udy.micro.cursos.controllers;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -21,7 +24,11 @@ import com.udy.micro.cursos.services.CursoService;
 public class CursoController extends CommonController<Curso, CursoService> {
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<?> edit(@RequestBody Curso curso, @PathVariable Long id){
+	public ResponseEntity<?> edit(@Valid @RequestBody Curso curso, BindingResult result, @PathVariable Long id){
+		
+		if( result.hasErrors()) {
+			return validar( result );
+		}
 		
 		Optional<Curso> o = this.service.findById(id);
 		if(!o.isPresent())

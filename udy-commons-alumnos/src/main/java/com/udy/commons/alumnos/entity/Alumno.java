@@ -1,4 +1,4 @@
-package com.udy.commons.alumnos.entity;
+ package com.udy.commons.alumnos.entity;
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -10,6 +10,8 @@ import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "alumnos")
@@ -20,12 +22,15 @@ public class Alumno {
 	private Long 	id;
 	
 	@Column(name = "nombre")
+	@NotEmpty
 	private String 	nombre;
 	
 	@Column(name = "apellido")
+	@NotEmpty
 	private String 	apellido;
 	
 	@Column(name = "email")
+	@Email
 	private String 	email;
 	
 	@Column(name = "create_at")
