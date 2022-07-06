@@ -1,8 +1,0 @@
-package com.microservicios.app.usuarios.persistence.services;
-
-import com.udy.commons.microservicios.services.CommonService;
-
-public interface AlumnoService extends CommonService<Alumno>{
-	
-
-}

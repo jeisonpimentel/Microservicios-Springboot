@@ -1,8 +1,0 @@
-package com.udymicro.examenes.services.impl;
-
-import com.udy.commons.microservicios.services.impl.CommonServiceImpl;
-import com.udymicro.examenes.repository.ExamenRepository;
-
-public class ExamenServiceImpl extends CommonServiceImpl<Examen, ExamenRepository>{
-
-}

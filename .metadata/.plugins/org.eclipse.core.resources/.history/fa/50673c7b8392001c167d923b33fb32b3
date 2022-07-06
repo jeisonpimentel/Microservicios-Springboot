@@ -1,7 +1,0 @@
-package com.udymicro.examenes.services;
-
-import com.udy.commons.microservicios.services.CommonService;
-
-public interface ExamenService extends CommonService {
-
-}

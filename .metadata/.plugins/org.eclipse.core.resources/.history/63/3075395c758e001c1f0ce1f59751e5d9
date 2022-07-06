@@ -1,5 +1,0 @@
-package com.microservicios.app.usuarios.persistence.controllers;
-
-public class AlumnoController {
-
-}

@@ -1,7 +1,0 @@
-package com.udymicro.examenes.repository;
-
-import org.springframework.data.repository.CrudRepository;
-
-public interface PreguntaRepository extends CrudRepository<Pregunta, Long>{
-
-}

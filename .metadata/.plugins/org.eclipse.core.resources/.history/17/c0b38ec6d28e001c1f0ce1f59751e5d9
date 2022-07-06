@@ -1,5 +1,0 @@
-package com.udy.micro.cursos.repository;
-
-public interface CursoRepository {
-
-}
